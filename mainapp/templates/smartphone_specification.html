@@ -1,0 +1,52 @@
+
+<table class="table">
+
+  <tbody>
+    <tr>
+      <td>Диагональ</td>
+      <td>{{product.diagonal}}</td>
+    </tr>
+  <tr>
+      <td>Дисплей</td>
+      <td>{{product.display}}</td>
+    </tr>
+  <tr>
+      <td>Разрешения экрана</td>
+      <td>{{product.resolution}}</td>
+    </tr>
+  <tr>
+      <td>Обьем батареи</td>
+      <td>{{product.accum_volume}}</td>
+    </tr>
+  <tr>
+      <td>Оперативная память</td>
+      <td>{{product.ram}}</td>
+    </tr>
+  <tr>
+      <td>Установка флешки</td>
+      <td>
+          {%if product.sd == True %}
+          <font color="Green">Да</font>
+          {% else %}
+          <font color="Red">Нет</font>
+          {% endif %}
+      </td>
+    </tr>
+    {% if product.sd == True %}
+   <tr>
+      <td>Макс обьем флешки</td>
+      <td>{{product.sd_volume_max}}</td>
+    </tr>
+    {% endif %}
+   <tr>
+      <td>Основная камера</td>
+      <td>{{product.main_cam_mp}}</td>
+    </tr>
+   <tr>
+      <td>Фронтальная камера</td>
+      <td>{{product.frontal_cam_mp}}</td>
+    </tr>
+
+  </tbody>
+</table>
+
