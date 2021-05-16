@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-<!--{% load specifications %}-->
+
 {% block content %}
 <nav aria-label="breadcrumb" class="mt-3">
   <ol class="breadcrumb">
@@ -18,15 +18,9 @@
         <p>Цена : {{product.price }} грн</p>
         <p>Описание: {{product.description}} </p>
         <hr>
-        <a href="{% url 'add_to_cart' ct_model=product.get_model_name slug=product.slug %}" ><button class="btn btn-danger">Добавить в корзину</button></a>
+        <a href="{% url 'add_to_cart' slug=product.slug %}" ><button class="btn btn-danger">Добавить в корзину</button></a>
     </div>
-    <p class="mt-4"><b>Характеристики:  </b></p>
-<!--    {{ product|product_spec }}-->
-    {% if product.category.slug == 'notebooks' %}
-        {% include 'notebook_specification.html' %}
-    {% else %}
-        {% include 'smartphone_specification.html' %}
-    {% endif %}
+
 </div>
 
 

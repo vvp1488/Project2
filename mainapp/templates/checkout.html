@@ -17,10 +17,10 @@
     {% for item in cart.products.all %}
     <tr>
         <th scope="row"><a
-                href="{% url 'product_detail' ct_model=item.content_object.get_model_name slug=item.content_object.slug  %}">
-            {{item.content_object.title}}</a></th>
-        <td class="w-25"><img src="{{item.content_object.image.url}}" class="image-fluid"></td>
-        <td>{{item.content_object.price}} грн</td>
+                href="{% url 'product_detail' slug=item.product.slug  %}">
+            {{item.product.title}}</a></th>
+        <td class="w-25"><img src="{{item.product.image.url}}" class="image-fluid"></td>
+        <td>{{item.product.price}} грн</td>
         <td>{{item.qty}}</td>
         <td>{{item.final_price}}</td>
 

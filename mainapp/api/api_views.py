@@ -1,12 +1,12 @@
 from collections import OrderedDict
 
 from rest_framework.response import Response
-from rest_framework.generics import ListAPIView , RetrieveAPIView , ListCreateAPIView ,RetrieveUpdateAPIView , RetrieveDestroyAPIView
-from rest_framework.filters import SearchFilter
+from rest_framework.generics import ListAPIView  , ListCreateAPIView ,RetrieveUpdateAPIView , RetrieveDestroyAPIView
+
 from rest_framework.pagination import PageNumberPagination
 
-from .serializers import CategorySerializer, SmartphoneSerializer ,NotebookSerializer ,CustomerSerializer
-from ..models import Category, Smartphone , Notebook , Customer
+from .serializers import CategorySerializer,CustomerSerializer
+from ..models import Category, Customer
 
 
 class CategoryPagination(PageNumberPagination):
@@ -45,25 +45,6 @@ class CategoryAPIView(ListCreateAPIView, RetrieveUpdateAPIView, RetrieveDestroyA
     lookup_field = 'id'
 
 
-class SmartphoneListAPIView(ListAPIView):
-    serializer_class = SmartphoneSerializer
-    pagination_class = ProductPagination
-    queryset = Smartphone.objects.all()
-    filter_backends = [SearchFilter]
-    search_fields = ['title','price']
-
-
-class NotebookListAPIView(ListAPIView):
-    serializer_class = NotebookSerializer
-    queryset =  Notebook.objects.all()
-    filter_backends = [SearchFilter]
-    search_fields = ['title','price']
-
-
-class SmartphoneDetailAPIView(RetrieveAPIView):
-    serializer_class = SmartphoneSerializer
-    queryset = Smartphone.objects.all()
-    lookup_field = 'id'
 
 
 class CustomersListAPIView(ListAPIView):

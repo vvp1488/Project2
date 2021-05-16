@@ -1,5 +1,6 @@
 from django.db import models
 
+
 def recalc_cart(cart):
     cart_data = cart.products.aggregate(models.Sum('final_price'), models.Count('id'))
     print(cart_data)
